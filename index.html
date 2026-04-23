@@ -1260,38 +1260,42 @@
     <div class="loi-form fade-up">
       <div class="form-title">Express Interest</div>
       <div class="form-sub">Fill this out and Michael will follow up personally within 24 hours with the LOI document and next steps.</div>
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" placeholder="Chef / Buyer Name">
-      </div>
-      <div class="form-group">
-        <label>Business Name</label>
-        <input type="text" placeholder="Restaurant, Retailer, or Nursery">
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="your@email.com">
-      </div>
-      <div class="form-group">
-        <label>Phone (Optional)</label>
-        <input type="tel" placeholder="512-xxx-xxxx">
-      </div>
-      <div class="form-group">
-        <label>I'm Interested In</label>
-        <select>
-          <option>Restaurant / Chef standing order</option>
-          <option>Retail wholesale account</option>
-          <option>Consumer subscription box</option>
-          <option>Nursery / TC services</option>
-          <option>Multiple — let's talk</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Anything else? (Optional)</label>
-        <textarea rows="2" placeholder="Volume needs, varieties of interest, timeline..."></textarea>
-      </div>
-      <button class="form-submit">Request LOI & Sample Box</button>
-      <p class="form-note">No spam. No obligation. Michael responds personally — usually same day.</p>
+      <form name="loi-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+        <input type="hidden" name="form-name" value="loi-request">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="Chef / Buyer Name" required>
+        </div>
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" name="business" placeholder="Restaurant, Retailer, or Nursery" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone (Optional)</label>
+          <input type="tel" name="phone" placeholder="512-xxx-xxxx">
+        </div>
+        <div class="form-group">
+          <label>I'm Interested In</label>
+          <select name="interest">
+            <option>Restaurant / Chef standing order</option>
+            <option>Retail wholesale account</option>
+            <option>Consumer subscription box</option>
+            <option>Nursery / TC services</option>
+            <option>Multiple — let's talk</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Anything else? (Optional)</label>
+          <textarea name="message" rows="2" placeholder="Volume needs, varieties of interest, timeline..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Request LOI & Sample Box</button>
+        <p class="form-note">No spam. No obligation. Michael responds personally — usually same day.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -1384,26 +1388,7 @@
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Smooth form (no backend — just visual feedback)
-  document.querySelector('.form-submit').addEventListener('click', function() {
-    const name = document.querySelector('input[placeholder="Chef / Buyer Name"]').value;
-    const biz = document.querySelector('input[placeholder="Restaurant, Retailer, or Nursery"]').value;
-    const email = document.querySelector('input[type="email"]').value;
 
-    if (!name || !biz || !email) {
-      this.textContent = 'Please fill required fields';
-      this.style.background = '#8a4a2a';
-      setTimeout(() => {
-        this.textContent = 'Request LOI & Sample Box';
-        this.style.background = '';
-      }, 2000);
-      return;
-    }
-
-    this.textContent = '✓ Request Received — Michael Will Be In Touch';
-    this.style.background = '#3d5a3e';
-    this.disabled = true;
-  });
 </script>
 </body>
 </html>
