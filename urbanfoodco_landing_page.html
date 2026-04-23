@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Food Company | Veteran-Owned Mushroom Farm | Manor, TX</title>
+<meta name="description" content="Veteran-owned gourmet & medicinal mushroom farm in Manor, TX. 18 varieties grown year-round, chemical-free, harvested to order. Supplying Austin's top restaurants, retailers & direct to your door.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a08;
+    --dark: #111110;
+    --earth: #2a2318;
+    --gold: #c8962a;
+    --gold-light: #e8b84b;
+    --cream: #f0e8d5;
+    --muted: #8a8070;
+    --white: #faf7f2;
+    --green: #3d5a3e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10,10,8,0.95), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10rem 4rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(200, 150, 42, 0.12);
+    border: 1px solid rgba(200, 150, 42, 0.3);
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+    width: fit-content;
+  }
+
+  .hero-badge span { font-size: 0.9rem; }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 9vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  h1 em {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.85em;
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 440px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-sub strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    border: 1px solid rgba(240,232,213,0.3);
+    color: var(--cream);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: border-color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: 60% 40%;
+  }
+
+  .hero-img-main {
+    background: linear-gradient(135deg, #1a2a1a 0%, #0d1a0e 50%, #1a1a0d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    opacity: 0.4;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img-main::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black), transparent 30%),
+                linear-gradient(to bottom, transparent 60%, var(--black));
+  }
+
+  .mushroom-visual {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .mushroom-circles {
+    position: relative;
+    width: 500px;
+    height: 500px;
+  }
+
+  .m-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    animation: rotate-slow linear infinite;
+  }
+
+  .m-circle:nth-child(1) {
+    width: 100%; height: 100%;
+    border-color: rgba(200,150,42,0.08);
+    animation-duration: 30s;
+  }
+
+  .m-circle:nth-child(2) {
+    width: 75%; height: 75%;
+    top: 12.5%; left: 12.5%;
+    border-color: rgba(200,150,42,0.12);
+    animation-duration: 20s;
+    animation-direction: reverse;
+  }
+
+  .m-circle:nth-child(3) {
+    width: 50%; height: 50%;
+    top: 25%; left: 25%;
+    border-color: rgba(200,150,42,0.2);
+    animation-duration: 15s;
+  }
+
+  .m-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    filter: drop-shadow(0 0 40px rgba(200,150,42,0.3));
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.9; }
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(200,150,42,0.15);
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+    border-right: 1px solid rgba(200,150,42,0.1);
+    text-align: center;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* TICKER */
+  .ticker {
+    background: var(--gold);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 25s linear infinite;
+  }
+
+  .ticker-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    padding: 0 3rem;
+  }
+
+  .ticker-dot {
+    color: rgba(10,10,8,0.4);
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ABOUT SECTION */
+  .section {
+    padding: 8rem 4rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  h2 em {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .about-body {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .about-body strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .credential-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .credential-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--cream);
+  }
+
+  .credential-list li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--dark);
+    border: 1px solid rgba(200,150,42,0.15);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 2rem;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+  }
+
+  .founder-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+
+  .founder-sub {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  .founder-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--cream);
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .founder-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .badge {
+    background: rgba(200,150,42,0.1);
+    border: 1px solid rgba(200,150,42,0.25);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  /* VARIETIES SECTION */
+  .varieties-section {
+    background: var(--dark);
+    padding: 8rem 4rem;
+    border-top: 1px solid rgba(200,150,42,0.1);
+    border-bottom: 1px solid rgba(200,150,42,0.1);
+  }
+
+  .varieties-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+
+  .varieties-intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .variety-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .variety-cat {
+    border: 1px solid rgba(200,150,42,0.15);
+    padding: 2.5rem;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .variety-cat:hover {
+    border-color: rgba(200,150,42,0.4);
+  }
+
+  .variety-cat-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 0.25rem;
+  }
+
+  .variety-cat-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .variety-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .variety-list li {
+    font-size: 0.85rem;
+    color: var(--cream);
+    opacity: 0.8;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .variety-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    opacity: 0.5;
+    font-size: 0.7rem;
+  }
+
+  /* PRICING SECTION */
+  .pricing-section {
+    padding: 8rem 4rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .price-card {
+    border: 1px solid rgba(200,150,42,0.15);
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.3s;
+    background: rgba(255,255,255,0.01);
+  }
+
+  .price-card:hover {
+    border-color: rgba(200,150,42,0.4);
+    background: rgba(200,150,42,0.03);
+    transform: translateY(-4px);
+  }
+
+  .price-card.featured {
+    border-color: var(--gold);
+    background: rgba(200,150,42,0.05);
+  }
+
+  .price-card.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--black);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    padding: 0.25rem 1rem;
+    font-weight: 600;
+  }
+
+  .card-type {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+
+  .card-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .card-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-price-unit {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .card-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-items li {
+    font-size: 0.8rem;
+    color: var(--cream);
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card-items li::before {
+    content: '✓';
+    color: var(--gold);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+
+  /* PARTNERS */
+  .partners-section {
+    background: var(--earth);
+    padding: 5rem 4rem;
+    border-top: 1px solid rgba(200,150,42,0.1);
+  }
+
+  .partners-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .partners-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .partner-pill {
+    border: 1px solid rgba(200,150,42,0.2);
+    padding: 0.6rem 1.4rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.7;
+    transition: all 0.2s;
+  }
+
+  .partner-pill:hover {
+    opacity: 1;
+    border-color: rgba(200,150,42,0.5);
+    color: var(--gold-light);
+  }
+
+  /* LOI SECTION */
+  .loi-section {
+    padding: 8rem 4rem;
+    background: var(--dark);
+    border-top: 1px solid rgba(200,150,42,0.1);
+  }
+
+  .loi-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .loi-content h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .loi-body {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .loi-body strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .loi-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .loi-perks li {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--cream);
+    align-items: flex-start;
+  }
+
+  .perk-icon {
+    color: var(--gold);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .loi-form {
+    background: rgba(200,150,42,0.05);
+    border: 1px solid rgba(200,150,42,0.2);
+    padding: 2.5rem;
+  }
+
+  .form-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-sub {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,150,42,0.2);
+    color: var(--cream);
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group select option {
+    background: var(--dark);
+    color: var(--cream);
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--gold-light); }
+
+  .form-note {
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* WHY UFC */
+  .why-section {
+    padding: 8rem 4rem;
+    border-top: 1px solid rgba(200,150,42,0.1);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+
+  .why-item {
+    position: relative;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(200,150,42,0.15);
+  }
+
+  .why-num {
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(200,150,42,0.08);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  .why-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .why-body {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* CONTACT / FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(200,150,42,0.15);
+    padding: 4rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(200,150,42,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .footer-cert {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .cert-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid rgba(200,150,42,0.2);
+    padding: 0.3rem 0.7rem;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    .section, .varieties-section, .pricing-section, .loi-section, .why-section { padding: 5rem 2rem; }
+    .about-grid, .varieties-header, .variety-categories, .pricing-grid, .loi-inner, .why-grid, .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    footer { padding: 3rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Urban Food Co.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#varieties">Varieties</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#partner">Partner With Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span>★</span> Veteran-Owned · Manor, Texas
+    </div>
+    <h1>
+      Grown with
+      <em>Precision.</em>
+      Delivered Fresh.
+    </h1>
+    <p class="hero-sub">
+      <strong>18 varieties of gourmet & medicinal mushrooms</strong>, cultivated year-round in a controlled-environment farm just outside Austin. Chemical-free, batch-traceable, harvested to order.
+    </p>
+    <div class="hero-ctas">
+      <a href="#partner" class="btn-primary">Become a Supply Partner</a>
+      <a href="#varieties" class="btn-secondary">View All Varieties</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="mushroom-visual">
+      <div class="mushroom-circles">
+        <div class="m-circle"></div>
+        <div class="m-circle"></div>
+        <div class="m-circle"></div>
+        <div class="m-center">🍄</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">18</span>
+        <span class="stat-label">Varieties Grown</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">365</span>
+        <span class="stat-label">Days Per Year</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">30mi</span>
+        <span class="stat-label">Delivery Radius</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Lion's Mane <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Maitake <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Reishi <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Turkey Tail <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Shiitake <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">King Trumpet <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Blue Oyster <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Pink Oyster <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Black Pearl <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Chestnut <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Pioppino <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Enoki <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Lion's Mane <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Maitake <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Reishi <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Turkey Tail <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Shiitake <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">King Trumpet <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Blue Oyster <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Pink Oyster <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Black Pearl <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Chestnut <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Pioppino <span class="ticker-dot">◆</span></span>
+    <span class="ticker-item">Enoki <span class="ticker-dot">◆</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="fade-up">
+      <div class="section-label">Our Story</div>
+      <h2>Texas <em>Grown.</em> Veteran Built.</h2>
+      <p class="about-body">
+        Urban Food Company is a <strong>controlled-environment agriculture operation</strong> based in Manor, TX — 20 minutes from downtown Austin. We grow premium gourmet and medicinal mushrooms year-round using FarmBox Foods technology, producing consistent, chemical-free harvests regardless of season or weather.
+      </p>
+      <p class="about-body">
+        Founded by a U.S. Army veteran and Texas A&M horticulture graduate, Urban Food Company brings <strong>military-grade operational discipline</strong> to every harvest. Every batch is logged, every delivery is traceable, and every product meets the standard your kitchen or storefront demands.
+      </p>
+      <ul class="credential-list">
+        <li>FarmBox Foods Gourmet Mushroom Farm — precision controlled environment</li>
+        <li>CannaCobra tissue culture lab — in-house spawn + micropropagation</li>
+        <li>Zero synthetic chemicals, pesticides, or herbicides</li>
+        <li>Full batch traceability from spore to harvest</li>
+        <li>Go Texan certified · Homegrown for Heroes eligible</li>
+        <li>Texas A&M AgriLife Extension consulting partnership</li>
+      </ul>
+    </div>
+    <div class="fade-up">
+      <div class="about-card">
+        <div class="founder-title">Michael Graham</div>
+        <div class="founder-sub">Founder & Farm Director</div>
+        <blockquote class="founder-quote">
+          "I served this country for years. Now I'm feeding it — with the same precision, accountability, and standards I learned in uniform."
+        </blockquote>
+        <div class="founder-badges">
+          <span class="badge">U.S. Army Veteran</span>
+          <span class="badge">Texas A&M — Horticulture</span>
+          <span class="badge">UT Austin — Entrepreneurship</span>
+          <span class="badge">Manor, TX</span>
+          <span class="badge">Est. 2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIETIES -->
+<section class="varieties-section" id="varieties">
+  <div class="varieties-header fade-up">
+    <div>
+      <div class="section-label">Product Line</div>
+      <h2>18 Varieties. <em>One Farm.</em></h2>
+    </div>
+    <p class="varieties-intro">
+      We grow the full spectrum — from everyday culinary staples like Shiitake and Blue Oyster, to premium functional varieties like Lion's Mane and Reishi. Every variety is available fresh weekly, with select varieties available dried for extended shelf life and functional applications.
+    </p>
+  </div>
+  <div class="variety-categories fade-up">
+    <div class="variety-cat">
+      <div class="variety-cat-label">Gourmet</div>
+      <div class="variety-cat-sub">Fresh · Weekly Harvest</div>
+      <ul class="variety-list">
+        <li>Blue Oyster — mild, savory · $14/lb</li>
+        <li>Golden Oyster — bright, nutty · $15/lb</li>
+        <li>Pink Oyster — smoky, crisp · $15/lb</li>
+        <li>Black Pearl Oyster — bold, umami · $17/lb</li>
+        <li>Elm Oyster — tender, buttery · $14/lb</li>
+        <li>Phoenix Oyster — light, earthy · $14/lb</li>
+        <li>Nebrodini Oyster — dense, juicy · $18/lb</li>
+        <li>King Trumpet — firm, savory · $18/lb</li>
+        <li>Chestnut — crunchy, nutty · $16/lb</li>
+        <li>Shiitake — deep umami · $16/lb</li>
+        <li>Pioppino — earthy, peppery · $18/lb</li>
+        <li>Enoki — crisp, delicate · $15/lb</li>
+        <li>Beech — mild, sweet · $15/lb</li>
+      </ul>
+    </div>
+    <div class="variety-cat">
+      <div class="variety-cat-label">Functional</div>
+      <div class="variety-cat-sub">Fresh + Dried · Medicinal Grade</div>
+      <ul class="variety-list">
+        <li>Lion's Mane — brain health · $24/lb fresh · $16/oz dried</li>
+        <li>Maitake — immunity, blood sugar · $24/lb fresh · $12/oz dried</li>
+        <li>Reishi — sleep, immune balance · $20/lb fresh · $14/oz dried</li>
+        <li>Turkey Tail — gut + immune · $18/lb fresh · $12/oz dried</li>
+        <li>Cordyceps (dried) — energy, stamina · $18/oz</li>
+        <li>Shiitake (dried) — immune support · $10/oz</li>
+      </ul>
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(200,150,42,0.1);">
+        <div class="variety-cat-label" style="font-size: 1.1rem;">Subscription Boxes</div>
+        <div class="variety-cat-sub">Biweekly or Weekly Delivery</div>
+        <ul class="variety-list">
+          <li>Chef's Mix Box — from $45/delivery</li>
+          <li>Performance Box — from $55/delivery</li>
+          <li>Immunity Box — from $55/delivery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label fade-up">Supply Partnerships</div>
+  <h2 class="fade-up">Built for <em>Restaurants.</em> Scaled for Retail.</h2>
+  <div class="pricing-grid fade-up">
+    <div class="price-card">
+      <div class="card-type">Standing Order</div>
+      <div class="card-name">Restaurant Direct</div>
+      <div class="card-desc">Weekly or biweekly delivery within 30 miles of Manor, TX. Harvested to order, never warehoused.</div>
+      <div class="card-price">$11–18</div>
+      <span class="card-price-unit">per pound · variety dependent</span>
+      <ul class="card-items">
+        <li>Minimum 5 lb per delivery</li>
+        <li>Custom variety mix available</li>
+        <li>Direct farm delivery</li>
+        <li>Batch traceability docs included</li>
+        <li>Flexible weekly or biweekly cadence</li>
+        <li>No distributor markup</li>
+      </ul>
+    </div>
+    <div class="price-card featured">
+      <div class="card-type">Subscription</div>
+      <div class="card-name">Consumer Box</div>
+      <div class="card-desc">Curated boxes delivered direct to home or office. Three tiers: Chef's Mix, Performance, and Immunity.</div>
+      <div class="card-price">$45–65</div>
+      <span class="card-price-unit">per delivery · biweekly or weekly</span>
+      <ul class="card-items">
+        <li>Recipe card included every box</li>
+        <li>Health benefit card (functional tiers)</li>
+        <li>Founding member rate locked 12 months</li>
+        <li>First box complimentary for founding members</li>
+        <li>Add dried functional oz for $10–18</li>
+        <li>Cancel or pause anytime</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <div class="card-type">B2B</div>
+      <div class="card-name">Wholesale + TC</div>
+      <div class="card-desc">For retailers, nurseries, and agricultural clients. Volume pricing on fresh mushrooms, spawn, and tissue culture services.</div>
+      <div class="card-price">Custom</div>
+      <span class="card-price-unit">volume · contract pricing</span>
+      <ul class="card-items">
+        <li>Grain spawn from $12/lb</li>
+        <li>Sawdust spawn from $14/lb</li>
+        <li>Contract TC propagation from $500/batch</li>
+        <li>Clean-stock propagules $2–8/plug</li>
+        <li>Retail grow kits $35/unit</li>
+        <li>Standing purchase agreements available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners-section">
+  <div class="partners-label">Prospective Supply Partners & Channels</div>
+  <div class="partners-grid">
+    <div class="partner-pill">Odd Duck</div>
+    <div class="partner-pill">Barley Swine</div>
+    <div class="partner-pill">Kalahari Resorts</div>
+    <div class="partner-pill">HEB</div>
+    <div class="partner-pill">Lonestar Nursery</div>
+    <div class="partner-pill">Whole Foods Market</div>
+    <div class="partner-pill">Sprouts Farmers Market</div>
+    <div class="partner-pill">Central Market</div>
+    <div class="partner-pill">Wheatsville Co-op</div>
+    <div class="partner-pill">Fabrik Austin</div>
+    <div class="partner-pill">Jack Allen's Kitchen</div>
+    <div class="partner-pill">Blue Corn Harvest</div>
+  </div>
+</div>
+
+<!-- LOI / PARTNER FORM -->
+<section class="loi-section" id="partner">
+  <div class="loi-inner">
+    <div class="loi-content fade-up">
+      <div class="section-label">Founding Partners</div>
+      <h2>Join Before We <em>Open.</em></h2>
+      <p class="loi-body">
+        We're building our founding supply partner network now — before our first harvest. <strong>Sign a letter of intent</strong> and lock in preferred pricing, guaranteed weekly allocation, and a complimentary sample box when operations begin.
+      </p>
+      <ul class="loi-perks">
+        <li>
+          <span class="perk-icon">◈</span>
+          <span><strong>Complimentary sample box</strong> delivered personally by Michael on launch day — no obligation, no contract required.</span>
+        </li>
+        <li>
+          <span class="perk-icon">◈</span>
+          <span><strong>Founding partner pricing</strong> locked for 12 months from your first order date.</span>
+        </li>
+        <li>
+          <span class="perk-icon">◈</span>
+          <span><strong>Priority weekly allocation</strong> — founding partners are fulfilled before open-market orders.</span>
+        </li>
+        <li>
+          <span class="perk-icon">◈</span>
+          <span><strong>Featured on our website</strong> as an Urban Food Co. founding supply partner.</span>
+        </li>
+      </ul>
+      <p style="font-size:0.8rem; color: var(--muted); line-height:1.6;">
+        The LOI is a non-binding expression of interest — no purchase commitment required. It simply signals your intent to evaluate our product once we're operational.
+      </p>
+    </div>
+    <div class="loi-form fade-up">
+      <div class="form-title">Express Interest</div>
+      <div class="form-sub">Fill this out and Michael will follow up personally within 24 hours with the LOI document and next steps.</div>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Chef / Buyer Name">
+      </div>
+      <div class="form-group">
+        <label>Business Name</label>
+        <input type="text" placeholder="Restaurant, Retailer, or Nursery">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>Phone (Optional)</label>
+        <input type="tel" placeholder="512-xxx-xxxx">
+      </div>
+      <div class="form-group">
+        <label>I'm Interested In</label>
+        <select>
+          <option>Restaurant / Chef standing order</option>
+          <option>Retail wholesale account</option>
+          <option>Consumer subscription box</option>
+          <option>Nursery / TC services</option>
+          <option>Multiple — let's talk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Anything else? (Optional)</label>
+        <textarea rows="2" placeholder="Volume needs, varieties of interest, timeline..."></textarea>
+      </div>
+      <button class="form-submit">Request LOI & Sample Box</button>
+      <p class="form-note">No spam. No obligation. Michael responds personally — usually same day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY UFC -->
+<section class="why-section">
+  <div class="section-label fade-up">Why Urban Food Co.</div>
+  <h2 class="fade-up">What Sets Us <em>Apart.</em></h2>
+  <div class="why-grid fade-up">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <div class="why-title">Year-Round Consistency</div>
+      <p class="why-body">Our FarmBox controlled environment operates independently of Texas weather. No seasonal gaps, no drought failures, no pest pressure. Same quality, every week, every month.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <div class="why-title">Harvested to Order</div>
+      <p class="why-body">We don't warehouse product. Every delivery is harvested within 24–48 hours of your order. That's the difference between a mushroom that's 2 days old and one that's 10 days old.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <div class="why-title">Full Traceability</div>
+      <p class="why-body">Every batch carries a log number, harvest date, and production record. We can trace any product from your kitchen back to the specific grow cycle it came from.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <div class="why-title">Zero Chemicals</div>
+      <p class="why-body">No synthetic pesticides, herbicides, or petroleum-based fertilizers. Ever. Our controlled environment eliminates the need — and we'll prove it with our grow records on request.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">05</div>
+      <div class="why-title">Hyper-Local</div>
+      <p class="why-body">Manor, TX to your Austin kitchen in under an hour. No distributor middleman, no cold-chain degradation, no mystery about where your product came from. We're your neighbor.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">06</div>
+      <div class="why-title">Veteran Accountability</div>
+      <p class="why-body">Military logistics, Texas A&M horticulture science, and an 8-year facility lease. We're not a hobby operation. We're built to deliver — on time, every time, to standard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <span class="footer-brand">Urban Food Co.</span>
+      <p class="footer-tagline">Veteran-owned controlled-environment mushroom farm. Supplying Austin's finest restaurants, retailers, and families with the freshest gourmet and medicinal mushrooms grown in Texas.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:5125348743">512-534-8743</a></li>
+        <li><a href="mailto:info@urbanfoodco.com">info@urbanfoodco.com</a></li>
+        <li><a href="#">www.urbanfoodco.com</a></li>
+        <li><a href="#">19929 Engelmann Ln</a></li>
+        <li><a href="#">Manor, TX 78653</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#varieties">Our Varieties</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#partner">Become a Partner</a></li>
+        <li><a href="#partner">Request LOI</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Urban Food Company LLC · Manor, TX · All rights reserved.</p>
+    <div class="footer-cert">
+      <span class="cert-tag">Veteran-Owned</span>
+      <span class="cert-tag">Go Texan</span>
+      <span class="cert-tag">Chemical-Free</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Smooth form (no backend — just visual feedback)
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    const name = document.querySelector('input[placeholder="Chef / Buyer Name"]').value;
+    const biz = document.querySelector('input[placeholder="Restaurant, Retailer, or Nursery"]').value;
+    const email = document.querySelector('input[type="email"]').value;
+
+    if (!name || !biz || !email) {
+      this.textContent = 'Please fill required fields';
+      this.style.background = '#8a4a2a';
+      setTimeout(() => {
+        this.textContent = 'Request LOI & Sample Box';
+        this.style.background = '';
+      }, 2000);
+      return;
+    }
+
+    this.textContent = '✓ Request Received — Michael Will Be In Touch';
+    this.style.background = '#3d5a3e';
+    this.disabled = true;
+  });
+</script>
+</body>
+</html>
